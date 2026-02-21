@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student List</title>
+</head>
+<body>
+    <h2>All Students</h2>
+
+    <table border="1" cellpadding="10">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>course</th>
+            <th>Action</th>
+        </tr>
+        {% if students %}
+            {% for s in students %}
+            <tr> 
+                <td>{{ s[0] }}</td>
+                <td>{{ s[1] }}</td>
+                <td>{{ s[2] }}</td>
+                <td>{{ s[3] }}</td>
+                <td> 
+                    <a href="/edit/{{ s[0] }}">Edit</a>
+                    <a href="/delete/{{ s[0] }}">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        {% else %}
+        <tr>  
+            <td colspan="4">No Students Found</td>
+        </tr>
+        {% endif %}
+    </table>
+
+    <br>
+    <a href="/" class="btn">Back Home</a>
+</body>
+</html>
